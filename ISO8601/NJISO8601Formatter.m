@@ -142,7 +142,7 @@ NSDate *NJISO8601DateFromString(NSString *aString)
 @implementation NJISO8601Formatter (Formatting)
 
 
-- (BOOL)appendDateStringWithYear:(int)aYear month:(int)aMonth day:(int)aDay weekday:(int)aWeekday timeZone:(CFTimeZoneRef)aTimeZone toString:(NSMutableString *)aString
+- (BOOL)appendDateStringWithYear:(int)aYear month:(int)aMonth day:(int)aDay weekday:(int)aWeekday toString:(NSMutableString *)aString
 {
     int sWeekOfYear;
 
@@ -180,10 +180,10 @@ NSDate *NJISO8601DateFromString(NSString *aString)
             [aString appendFormat:@"%03d", NJDayOfYearFromCalendarDate(aYear, aMonth, aDay)];
             break;
         case NJISO8601FormatterDateStyleWeekExtended:
-            [aString appendFormat:@"-W%02d-%d", sWeekOfYear, sDayOfWeek];
+            [aString appendFormat:@"-W%02d-%d", sWeekOfYear, aWeekday];
             break;
         case NJISO8601FormatterDateStyleWeekBasic:
-            [aString appendFormat:@"W%02d%d", sWeekOfYear, sDayOfWeek];
+            [aString appendFormat:@"W%02d%d", sWeekOfYear, aWeekday];
             break;
     }
 
@@ -218,7 +218,7 @@ NSDate *NJISO8601DateFromString(NSString *aString)
 }
 
 
-- (void)appendTimeZoneStringForTimeZone:(CFTimeZoneRef)aTimeZone absoluteTime:(CFAbsoluteTime)aAbsoluteTime toString:(NSMutableString *)aString
+- (void)appendTimeZoneStringForTimeZone:(NSTimeZone*)aTimeZone toString:(NSMutableString *)aString
 {
     if (mTimeZoneStyle == NJISO8601FormatterTimeZoneStyleNone)
     {
@@ -229,26 +229,26 @@ NSDate *NJISO8601DateFromString(NSString *aString)
     }
     else
     {
-        NSInteger sMinutesFromGMT = (NSInteger)CFTimeZoneGetSecondsFromGMT(aTimeZone, aAbsoluteTime) / 60;
+        NSInteger sMinutesFromGMT = [aTimeZone secondsFromGMT] / 60;
 
         if (sMinutesFromGMT < 0)
         {
             sMinutesFromGMT *= -1;
 
-            [aString appendFormat:@"-%02d", (sMinutesFromGMT / 60)];
+            [aString appendFormat:@"-%02ld", (sMinutesFromGMT / 60)];
         }
         else
         {
-            [aString appendFormat:@"+%02d", (sMinutesFromGMT / 60)];
+            [aString appendFormat:@"+%02ld", (sMinutesFromGMT / 60)];
         }
 
         if (mTimeZoneStyle == NJISO8601FormatterTimeZoneStyleExtended)
         {
-            [aString appendFormat:@":%02d", (sMinutesFromGMT % 60)];
+            [aString appendFormat:@":%02ld", (sMinutesFromGMT % 60)];
         }
         else
         {
-            [aString appendFormat:@"%02d", (sMinutesFromGMT % 60)];
+            [aString appendFormat:@"%02ld", (sMinutesFromGMT % 60)];
         }
     }
 }
@@ -307,7 +307,7 @@ NSDate *NJISO8601DateFromString(NSString *aString)
     if (aDate)
     {
         NSMutableString *sString;
-        CFTimeZoneRef    sTimeZone;
+        NSTimeZone      *sTimeZone;
 
         sString = [NSMutableString string];
 
@@ -317,12 +317,12 @@ NSDate *NJISO8601DateFromString(NSString *aString)
         }
         else
         {
-            sTimeZone = (CFTimeZoneRef)(mTimeZone ? mTimeZone : [NSTimeZone localTimeZone]);
+            sTimeZone = mTimeZone ? mTimeZone : [NSTimeZone localTimeZone];
         }
 
         NSDateComponents* comp = [[NSCalendar currentCalendar] componentsInTimeZone:sTimeZone fromDate:aDate];
 
-        if (![self appendDateStringWithYear:[comp year] month:[comp month] day:[comp day] weekday:[comp weekday] timeZone:sTimeZone toString:sString])
+        if (![self appendDateStringWithYear:[comp year] month:[comp month] day:[comp day] weekday:[comp weekday] toString:sString])
         {
             return nil;
         }
@@ -330,7 +330,7 @@ NSDate *NJISO8601DateFromString(NSString *aString)
         if (mTimeStyle != NJISO8601FormatterTimeStyleNone)
         {
             [self appendTimeStringWithHour:[comp hour] minute:[comp minute] second:[comp second] toString:sString];
-            [self appendTimeZoneStringForTimeZone:sTimeZone absoluteTime:[aDate timeIntervalSinceReferenceDate] toString:sString];
+            [self appendTimeZoneStringForTimeZone:sTimeZone toString:sString];
         }
 
         return sString;
