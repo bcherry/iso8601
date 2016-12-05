@@ -142,15 +142,13 @@ NSDate *NJISO8601DateFromString(NSString *aString)
 @implementation NJISO8601Formatter (Formatting)
 
 
-- (BOOL)appendDateStringWithYear:(int)aYear month:(int)aMonth day:(int)aDay absoluteTime:(CFAbsoluteTime)aAbsoluteTime timeZone:(CFTimeZoneRef)aTimeZone toString:(NSMutableString *)aString
+- (BOOL)appendDateStringWithYear:(int)aYear month:(int)aMonth day:(int)aDay weekday:(int)aWeekday timeZone:(CFTimeZoneRef)aTimeZone toString:(NSMutableString *)aString
 {
-    int sDayOfWeek;
     int sWeekOfYear;
 
     if ((mDateStyle == NJISO8601FormatterDateStyleWeekExtended) || (mDateStyle == NJISO8601FormatterDateStyleWeekBasic))
     {
-        sDayOfWeek  = CFAbsoluteTimeGetDayOfWeek(aAbsoluteTime, aTimeZone);
-        sWeekOfYear = NJWeekOfYearFromCalendarDate(&aYear, aMonth, aDay, sDayOfWeek);
+        sWeekOfYear = NJWeekOfYearFromCalendarDate(&aYear, aMonth, aDay, aWeekday);
     }
 
     if ((aYear < 0) || (aYear > 9999))
@@ -310,8 +308,6 @@ NSDate *NJISO8601DateFromString(NSString *aString)
     {
         NSMutableString *sString;
         CFTimeZoneRef    sTimeZone;
-        CFAbsoluteTime   sAbsoluteTime;
-        CFGregorianDate  sGregorianDate;
 
         sString = [NSMutableString string];
 
@@ -324,18 +320,17 @@ NSDate *NJISO8601DateFromString(NSString *aString)
             sTimeZone = (CFTimeZoneRef)(mTimeZone ? mTimeZone : [NSTimeZone localTimeZone]);
         }
 
-        sAbsoluteTime  = [aDate timeIntervalSinceReferenceDate];
-        sGregorianDate = CFAbsoluteTimeGetGregorianDate(sAbsoluteTime, sTimeZone);
+        NSDateComponents* comp = [[NSCalendar currentCalendar] componentsInTimeZone:sTimeZone fromDate:aDate];
 
-        if (![self appendDateStringWithYear:sGregorianDate.year month:sGregorianDate.month day:sGregorianDate.day absoluteTime:sAbsoluteTime timeZone:sTimeZone toString:sString])
+        if (![self appendDateStringWithYear:[comp year] month:[comp month] day:[comp day] weekday:[comp weekday] timeZone:sTimeZone toString:sString])
         {
             return nil;
         }
 
         if (mTimeStyle != NJISO8601FormatterTimeStyleNone)
         {
-            [self appendTimeStringWithHour:sGregorianDate.hour minute:sGregorianDate.minute second:sGregorianDate.second toString:sString];
-            [self appendTimeZoneStringForTimeZone:sTimeZone absoluteTime:sAbsoluteTime toString:sString];
+            [self appendTimeStringWithHour:[comp hour] minute:[comp minute] second:[comp second] toString:sString];
+            [self appendTimeZoneStringForTimeZone:sTimeZone absoluteTime:[aDate timeIntervalSinceReferenceDate] toString:sString];
         }
 
         return sString;
