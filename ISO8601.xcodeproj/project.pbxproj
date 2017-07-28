@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		250F226B1AB1E5EC00777F66 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 250F226A1AB1E5EC00777F66 /* Default-568h@2x.png */; };
 		28ABDC8F1F2ACCB200C42342 /* ISO8601aTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ABDC8E1F2ACCB200C42342 /* ISO8601aTests.m */; };
-		28ABDC991F2ACE4000C42342 /* a.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ABDC981F2ACE4000C42342 /* a.m */; };
+		28ABDC991F2ACE4000C42342 /* NJISO8601FormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ABDC981F2ACE4000C42342 /* NJISO8601FormatterTests.m */; };
 		CFB1B8021519734800176C89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB1B8011519734800176C89 /* UIKit.framework */; };
 		CFB1B8041519734800176C89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB1B8031519734800176C89 /* Foundation.framework */; };
 		CFB1B8061519734800176C89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB1B8051519734800176C89 /* CoreGraphics.framework */; };
@@ -22,7 +22,6 @@
 		CFB1B8211519734900176C89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB1B8011519734800176C89 /* UIKit.framework */; };
 		CFB1B8221519734900176C89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB1B8031519734800176C89 /* Foundation.framework */; };
 		CFB1B82A1519734900176C89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFB1B8281519734900176C89 /* InfoPlist.strings */; };
-		CFB1B82D1519734900176C89 /* NJISO8601FormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1B82C1519734900176C89 /* NJISO8601FormatterTests.m */; };
 		CFB1B85B1519AFE300176C89 /* NJISO8601Parser.re in Sources */ = {isa = PBXBuildFile; fileRef = CFB1B85A1519AFE300176C89 /* NJISO8601Parser.re */; };
 		CFB1B85C1519B6C600176C89 /* NJISO8601Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1B83B1519738300176C89 /* NJISO8601Formatter.m */; };
 		CFB1B862151AF4A500176C89 /* UNIX2003.c in Sources */ = {isa = PBXBuildFile; fileRef = CFB1B860151AF48200176C89 /* UNIX2003.c */; };
@@ -66,7 +65,7 @@
 		28ABDC8C1F2ACCB200C42342 /* ISO8601aTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ISO8601aTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28ABDC8E1F2ACCB200C42342 /* ISO8601aTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISO8601aTests.m; sourceTree = "<group>"; };
 		28ABDC901F2ACCB200C42342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28ABDC981F2ACE4000C42342 /* a.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = a.m; sourceTree = "<group>"; };
+		28ABDC981F2ACE4000C42342 /* NJISO8601FormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJISO8601FormatterTests.m; sourceTree = "<group>"; };
 		CFB1B7FD1519734800176C89 /* ISO8601.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISO8601.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB1B8011519734800176C89 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CFB1B8031519734800176C89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,8 +83,6 @@
 		CFB1B81F1519734900176C89 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		CFB1B8271519734900176C89 /* ISO8601Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ISO8601Tests-Info.plist"; sourceTree = "<group>"; };
 		CFB1B8291519734900176C89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CFB1B82B1519734900176C89 /* NJISO8601FormatterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJISO8601FormatterTests.h; sourceTree = "<group>"; };
-		CFB1B82C1519734900176C89 /* NJISO8601FormatterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJISO8601FormatterTests.m; sourceTree = "<group>"; };
 		CFB1B83A1519738300176C89 /* NJISO8601Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJISO8601Formatter.h; sourceTree = "<group>"; };
 		CFB1B83B1519738300176C89 /* NJISO8601Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJISO8601Formatter.m; sourceTree = "<group>"; };
 		CFB1B85A1519AFE300176C89 /* NJISO8601Parser.re */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NJISO8601Parser.re; sourceTree = "<group>"; };
@@ -195,9 +192,7 @@
 		CFB1B8251519734900176C89 /* ISO8601Tests */ = {
 			isa = PBXGroup;
 			children = (
-				28ABDC981F2ACE4000C42342 /* a.m */,
-				CFB1B82B1519734900176C89 /* NJISO8601FormatterTests.h */,
-				CFB1B82C1519734900176C89 /* NJISO8601FormatterTests.m */,
+				28ABDC981F2ACE4000C42342 /* NJISO8601FormatterTests.m */,
 				CFB1B8261519734900176C89 /* Supporting Files */,
 			);
 			path = ISO8601Tests;
@@ -363,7 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28ABDC991F2ACE4000C42342 /* a.m in Sources */,
+				28ABDC991F2ACE4000C42342 /* NJISO8601FormatterTests.m in Sources */,
 				28ABDC8F1F2ACCB200C42342 /* ISO8601aTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,7 +380,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFB1B82D1519734900176C89 /* NJISO8601FormatterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
