@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CFB1B7FC1519734800176C89"
-               BuildableName = "ISO8601.app"
+               BlueprintIdentifier = "28990ECD1F2ADF6F009E0A13"
+               BuildableName = "ISO8601.framework"
                BlueprintName = "ISO8601"
                ReferencedContainer = "container:ISO8601.xcodeproj">
             </BuildableReference>
@@ -56,8 +56,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CFB1B7FC1519734800176C89"
-            BuildableName = "ISO8601.app"
+            BlueprintIdentifier = "28990ECD1F2ADF6F009E0A13"
+            BuildableName = "ISO8601.framework"
             BlueprintName = "ISO8601"
             ReferencedContainer = "container:ISO8601.xcodeproj">
          </BuildableReference>
@@ -79,8 +79,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CFB1B7FC1519734800176C89"
-            BuildableName = "ISO8601.app"
+            BlueprintIdentifier = "28990ECD1F2ADF6F009E0A13"
+            BuildableName = "ISO8601.framework"
             BlueprintName = "ISO8601"
             ReferencedContainer = "container:ISO8601.xcodeproj">
          </BuildableReference>
@@ -98,8 +98,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CFB1B7FC1519734800176C89"
-            BuildableName = "ISO8601.app"
+            BlueprintIdentifier = "28990ECD1F2ADF6F009E0A13"
+            BuildableName = "ISO8601.framework"
             BlueprintName = "ISO8601"
             ReferencedContainer = "container:ISO8601.xcodeproj">
          </BuildableReference>

@@ -14,20 +14,6 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CFB1B7FC1519734800176C89"
-               BuildableName = "ISO8601.app"
-               BlueprintName = "ISO8601"
-               ReferencedContainer = "container:ISO8601.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "28ABDC8B1F2ACCB200C42342"
                BuildableName = "ISO8601Tests.xctest"
                BlueprintName = "ISO8601Tests"
@@ -43,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CFB1B7FC1519734800176C89"
-            BuildableName = "ISO8601.app"
-            BlueprintName = "ISO8601"
-            ReferencedContainer = "container:ISO8601.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
